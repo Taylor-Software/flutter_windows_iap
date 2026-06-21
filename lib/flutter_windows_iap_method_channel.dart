@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'flutter_windows_iap_platform_interface.dart';
 import 'src/models.dart';
 
+/// An implementation of [FlutterWindowsIapPlatform] that uses method channels.
 class MethodChannelFlutterWindowsIap extends FlutterWindowsIapPlatform {
   final _channel = const MethodChannel('flutter_windows_iap');
 

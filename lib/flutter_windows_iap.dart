@@ -5,7 +5,7 @@ export 'src/models.dart';
 
 /// Windows Microsoft Store in-app purchase plugin.
 ///
-/// Wraps [Windows.Services.Store.StoreContext] via a C++/WinRT platform
+/// Wraps `Windows.Services.Store.StoreContext` via a C++/WinRT platform
 /// channel. All purchase flows go through the Microsoft Store; no
 /// server-side validation is required for non-consumable purchases.
 class FlutterWindowsIap {

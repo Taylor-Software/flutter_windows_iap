@@ -1,5 +1,6 @@
 /// Metadata for a single Microsoft Store product.
 class WinIapProduct {
+  /// Creates a product from Store-provided metadata.
   const WinIapProduct({
     required this.skuId,
     required this.title,
@@ -8,8 +9,13 @@ class WinIapProduct {
     required this.currencyCode,
   });
 
+  /// Store SKU identifier (the in-app product ID set in Partner Center).
   final String skuId;
+
+  /// Localised product title.
   final String title;
+
+  /// Localised product description.
   final String description;
 
   /// Localised price string as returned by the Store (e.g. "$0.99").
@@ -18,6 +24,7 @@ class WinIapProduct {
   /// ISO 4217 currency code (e.g. "USD").
   final String currencyCode;
 
+  /// Builds a [WinIapProduct] from the platform channel's map payload.
   factory WinIapProduct.fromMap(Map<Object?, Object?> map) {
     return WinIapProduct(
       skuId: map['skuId'] as String,
@@ -44,20 +51,26 @@ enum WinIapPurchaseStatus {
   failed,
 }
 
+/// Result of a [FlutterWindowsIap.purchase] attempt for a single SKU.
 class WinIapPurchaseResult {
+  /// Creates a purchase result.
   const WinIapPurchaseResult({
     required this.skuId,
     required this.status,
     this.extendedError,
   });
 
+  /// Store SKU identifier the purchase was attempted for.
   final String skuId;
+
+  /// Outcome of the purchase attempt.
   final WinIapPurchaseStatus status;
 
-  /// HRESULT error code from [StoreContext.RequestPurchaseAsync], if [status]
+  /// HRESULT error code from `StoreContext.RequestPurchaseAsync`, if [status]
   /// is [WinIapPurchaseStatus.failed].
   final int? extendedError;
 
+  /// Builds a [WinIapPurchaseResult] from the platform channel's map payload.
   factory WinIapPurchaseResult.fromMap(Map<Object?, Object?> map) {
     final statusStr = map['status'] as String;
     final status = switch (statusStr) {
