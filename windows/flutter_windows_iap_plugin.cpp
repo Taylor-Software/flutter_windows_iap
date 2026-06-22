@@ -160,7 +160,7 @@ winrt::fire_and_forget FlutterWindowsIapPlugin::QueryProductsAsync(
         co_await ctx.GetStoreProductsAsync(product_kinds, ids);
 
     EncodableList products;
-    for (auto &kv : query_result.Products()) {
+    for (auto kv : query_result.Products()) {
       const auto &p = kv.Value();
       auto price = p.Price();
       EncodableMap m;
@@ -229,7 +229,7 @@ winrt::fire_and_forget FlutterWindowsIapPlugin::RestorePurchasesAsync(
     auto license = co_await ctx.GetAppLicenseAsync();
 
     EncodableList owned;
-    for (auto &kv : license.AddOnLicenses()) {
+    for (auto kv : license.AddOnLicenses()) {
       const auto &addon = kv.Value();
       if (addon.IsActive()) {
         owned.push_back(EncodableValue(to_string(addon.SkuStoreId())));

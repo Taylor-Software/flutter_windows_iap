@@ -1,3 +1,12 @@
+## 0.1.1
+
+* Fix Windows build — the plugin did not compile before this:
+  * include `<flutter/encodable_value.h>` in the plugin header so
+    `flutter::EncodableMap` resolves;
+  * iterate WinRT `StoreProduct` / add-on license maps by value
+    (`for (auto kv : ...)`) — `IKeyValuePair` is returned as a prvalue and
+    cannot bind to a non-const reference.
+
 ## 0.1.0
 
 * Implement `queryProducts`, `purchase`, and `restorePurchases` via WinRT

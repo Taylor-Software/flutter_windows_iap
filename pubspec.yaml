@@ -1,6 +1,6 @@
 name: flutter_windows_iap
 description: "Flutter plugin for Microsoft Store in-app purchases on Windows, wrapping Windows.Services.Store.StoreContext via C++/WinRT."
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/Taylor-Software/flutter_windows_iap
 repository: https://github.com/Taylor-Software/flutter_windows_iap
 issue_tracker: https://github.com/Taylor-Software/flutter_windows_iap/issues
